@@ -1,34 +1,47 @@
 async function loadInstagramFeed() {
-    const beholdURL = "https://feeds.behold.so/s82aBRMBW75LwWIeaifg"; 
+    const rssURL = "https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Frss.app%2Ffeeds%2FDHAgJ1Qebipk3EdD.xml"; 
     const galleryContainer = document.getElementById('insta-gallery');
 
     try {
-        const response = await fetch(beholdURL);
+        const response = await fetch(rssURL);
         const data = await response.json();
 
-        // Tüm postları alıyoruz (Sınırı kaldırdım)
-        const posts = data.posts; 
+        if (data.status === 'ok') {
+            // FİLTRELEME: Başlığında veya linkinde "rss.app" geçenleri siler
+            const posts = data.items.filter(item => {
+                const isAds = item.title.toLowerCase().includes("rss.app") || 
+                              item.link.toLowerCase().includes("rss.app") ||
+                              item.description.toLowerCase().includes("rss.app");
+                return !isAds; // Reklam değilse geçsin
+            });
 
-        galleryContainer.innerHTML = posts.map(post => {
-            // Video ise kapak resmini, resim ise direkt mediaUrl'yi kullanıyoruz
-            const displayImage = post.thumbnailUrl || post.mediaUrl;
+            galleryContainer.innerHTML = posts.map(post => {
+                let imgSrc = post.thumbnail;
+                
+                if (!imgSrc && post.description) {
+                    const imgMatch = post.description.match(/<img[^>]+src="([^">]+)"/);
+                    imgSrc = imgMatch ? imgMatch[1] : "";
+                }
 
-            return `
-                <a href="${post.permalink}" target="_blank" class="group relative overflow-hidden rounded-2xl aspect-square shadow-2xl bg-gradient-to-br from-green-900/20 to-black border border-white/5">
-                    <img src="${displayImage}" 
-                         alt="Kurtarıcı Ferat Instagram" 
-                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                         onerror="this.style.display='none'"> 
-                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        <i class="fab fa-instagram text-white text-2xl"></i>
-                    </div>
-                    ${post.mediaType === 'VIDEO' ? '<div class="absolute top-2 right-2 text-white/70 text-[10px]"><i class="fas fa-play"></i></div>' : ''}
-                </a>
-            `;
-        }).join('');
+                if (!imgSrc && post.enclosure && post.enclosure.link) {
+                    imgSrc = post.enclosure.link;
+                }
+
+                return `
+                    <a href="${post.link}" target="_blank" class="group relative overflow-hidden rounded-2xl aspect-square shadow-2xl bg-green-950/10 border border-white/5">
+                        <img src="${imgSrc}" 
+                             alt="Kurtarıcı Ferat Instagram" 
+                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                             onerror="this.src='https://via.placeholder.com/400?text=Instagram+Post'">
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <i class="fab fa-instagram text-white text-2xl"></i>
+                        </div>
+                    </a>
+                `;
+            }).join('');
+        }
     } catch (error) {
-        console.error("Instagram verisi yüklenemedi:", error);
-        galleryContainer.innerHTML = `<p class="text-[8px] text-gray-700 col-span-2 text-center uppercase tracking-widest">Akış şu an güncellenemiyor.</p>`;
+        console.error("Filtreleme hatası:", error);
     }
 }
 
