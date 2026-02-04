@@ -85,7 +85,7 @@
         <div class="mt-16">
             <h2 class="text-[10px] font-black uppercase tracking-[0.5em] text-center text-gray-500 mb-8 italic">Güncel Çalışmalarımız</h2>
             <div id="db-gallery" class="grid grid-cols-2 gap-3 min-h-[200px]">
-                <p class="text-[8px] text-gray-800 col-span-2 text-center uppercase animate-pulse italic">Veriler senkronize ediliyor...</p>
+                <p class="text-[8px] text-gray-800 col-span-2 text-center uppercase animate-pulse italic">Veriler yükleniyor...</p>
             </div>
         </div>
 
@@ -99,7 +99,9 @@
         async function loadCustomGallery() {
             const gallery = document.getElementById('db-gallery');
             try {
+                // API isteği
                 const response = await fetch('/api/api');
+                if (!response.ok) throw new Error('API Hatası');
                 const data = await response.json();
 
                 if (data && data.length > 0) {
@@ -107,15 +109,17 @@
                         <div class="group relative overflow-hidden rounded-2xl aspect-square shadow-2xl bg-green-950/10 border border-white/5">
                             <img src="${img.url}" 
                                  alt="Kurtarıcı Ferat" 
-                                 class="w-full h-full object-cover transition-all duration-700 grayscale group-hover:grayscale-0 group-hover:scale-110">
-                            <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                 class="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
+                                 loading="lazy">
+                            <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                         </div>
                     `).join('');
                 } else {
                     gallery.innerHTML = '<p class="text-[8px] text-gray-600 col-span-2 text-center uppercase">Arşivde kayıt bulunamadı.</p>';
                 }
             } catch (error) {
-                gallery.innerHTML = '<p class="text-[8px] text-red-900 col-span-2 text-center uppercase">Bağlantı hatası!</p>';
+                console.error("Galeri Hatası:", error);
+                gallery.innerHTML = '<p class="text-[8px] text-red-900 col-span-2 text-center uppercase">Bağlantı hatası veya veri çekilemedi!</p>';
             }
         }
         document.addEventListener('DOMContentLoaded', loadCustomGallery);
