@@ -3,43 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kurtarıcı Ferat | Sakarya 7/54 Çekici & Yol Yardım</title>
+    <meta name="description" content="Sakarya Adapazarı merkezli Kurtarıcı Ferat, 7/54 profesyonel oto çekici ve yol yardım hizmeti sunar.">
     
-    <title>Kurtarıcı Ferat | Sakarya Adapazarı 7/54 Çekici & Yol Yardım</title>
-    <meta name="description" content="Sakarya Adapazarı Hızırtepe merkezli Kurtarıcı Ferat, 7/54 profesyonel oto çekici ve yol yardım hizmeti sunar. Erenler ve Sakarya geneli en hızlı kurtarıcı.">
-    
-    <meta name="keywords" content="Adapazarı çekici, Sakarya çekici, Hızırtepe çekici, Yıldıztepe çekici, Erenler çekici, Kurtarıcı Ferat, Sakarya oto kurtarma, 7/54 çekici, Sakarya yedi elli dört, oto kurtarıcı Adapazarı, yol yardım Sakarya, uygun çekici Sakarya, acil kurtarıcı, Sakarya araç taşıma, Sakarya yol yardım, Erenler sanayi çekici, Ferhat çekici, Sakarya ahtapot çekici, Sakarya kurtarıcı telefon, en yakın çekici Sakarya, Adapazı Çekici">
-
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <script src="api.js" defer></script>
-    
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Inter:wght@300;400;700;900&display=swap');
-        
         :root { --main-green: #22c55e; --deep-dark: #050505; }
         body { font-family: 'Inter', sans-serif; background-color: var(--deep-dark); color: white; overflow-x: hidden; }
         .brand { font-family: 'Syncopate', sans-serif; }
-
-        .bg-glow {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at 50% 50%, #16653415 0%, transparent 70%);
-            z-index: -1; animation: pulse-bg 8s infinite alternate;
-        }
+        .bg-glow { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 50% 50%, #16653415 0%, transparent 70%); z-index: -1; animation: pulse-bg 8s infinite alternate; }
         @keyframes pulse-bg { 0% { opacity: 0.4; } 100% { opacity: 1; } }
-
         .glass { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); }
-        
         .btn-animate { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
         .btn-animate:hover { transform: translateY(-4px) scale(1.01); box-shadow: 0 20px 40px rgba(34, 197, 94, 0.1); }
-
         .status-dot { width: 10px; height: 10px; background-color: #22c55e; border-radius: 50%; box-shadow: 0 0 12px #22c55e; animation: blink 1.5s infinite; }
         @keyframes blink { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(1.3); } }
-
         .marquee { white-space: nowrap; overflow: hidden; background: #22c55e; color: black; font-weight: 900; padding: 6px 0; font-size: 11px; text-transform: uppercase; }
         .marquee div { display: inline-block; padding-left: 100%; animation: marquee 35s linear infinite; }
         @keyframes marquee { 0% { transform: translate(0, 0); } 100% { transform: translate(-100%, 0); } }
-
         .animate-shake { animation: shake 2s infinite; }
         @keyframes shake { 0%, 100% { transform: rotate(0deg); } 10%, 30%, 50% { transform: rotate(-15deg); } 20%, 40%, 60% { transform: rotate(15deg); } }
     </style>
@@ -48,13 +32,10 @@
     <div class="bg-glow"></div>
 
     <div class="marquee">
-        <div>
-            #SAKARYA #ADAPAZARI #ERENLER #HIZIRTEPE #CEKICI #YOLYARDIM #7/54 #OTO-KURTARMA #YILDIZTEPE #YEDI-ELLI-DÖRT #KURTARICI-FERAT #ACIL-CEKICI #SAKARYA-YOL-YARDIM #ARAC-TASIMA #HIZLI-MÜDAHALE #YEDI-54 #FERHAT-CEKICI
-        </div>
+        <div>#SAKARYA #ADAPAZARI #ERENLER #HIZIRTEPE #CEKICI #YOLYARDIM #7/54 #OTO-KURTARMA #YILDIZTEPE #KURTARICI-FERAT #ACIL-CEKICI #SAKARYA-YOL-YARDIM #ARAC-TASIMA #HIZLI-MÜDAHALE #FERHAT-CEKICI</div>
     </div>
 
     <div class="max-w-xl mx-auto px-6 py-8 flex flex-col min-h-screen">
-        
         <div class="flex justify-between items-center mb-8">
             <div class="flex items-center gap-2 glass px-4 py-1.5 rounded-full border-green-500/20">
                 <div class="status-dot"></div>
@@ -67,9 +48,7 @@
             <div class="relative inline-block mb-6">
                 <div class="absolute inset-0 bg-green-500/15 blur-[80px] rounded-full"></div>
                 <img src="ferhat.png" alt="Kurtarıcı Ferat Logo" class="relative w-60 h-60 rounded-full border-4 border-white/5 shadow-2xl object-cover hover:scale-105 transition-transform duration-500">
-                <div class="absolute -bottom-2 -right-2 bg-green-600 text-white font-black px-4 py-2 rounded-xl rotate-12 shadow-2xl border-2 border-black text-sm">
-                    7/54
-                </div>
+                <div class="absolute -bottom-2 -right-2 bg-green-600 text-white font-black px-4 py-2 rounded-xl rotate-12 shadow-2xl border-2 border-black text-sm">7/54</div>
             </div>
             <h1 class="brand text-2xl tracking-tighter italic">KURTARICI FERAT</h1>
             <p class="text-gray-500 text-[10px] mt-2 font-bold uppercase tracking-[0.3em]">Yol Yardım & Oto Çekici</p>
@@ -78,26 +57,13 @@
         <div class="space-y-4">
             <a href="tel:+905324181654" class="btn-animate flex items-center justify-between w-full bg-green-600 p-6 rounded-3xl group">
                 <div class="flex items-center gap-4">
-                    <div class="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center text-xl animate-shake">
-                        <i class="fas fa-phone-alt"></i>
-                    </div>
+                    <div class="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center text-xl animate-shake"><i class="fas fa-phone-alt"></i></div>
                     <div class="text-left">
                         <p class="text-[9px] font-bold text-green-100 uppercase opacity-80">Hemen Ara - En Yakın Sürede Yanında</p>
                         <p class="text-2xl font-black tracking-tight">0532 418 16 54</p>
                     </div>
                 </div>
                 <i class="fas fa-arrow-right opacity-30 group-hover:translate-x-2 transition-transform"></i>
-            </a>
-
-            <a href="https://www.google.com/maps/search/?api=1&query=Hızırtepe+Mah+Yıldız+Tepe+Cd+No:26/A+Adapazarı+Sakarya" target="_blank" class="btn-animate flex items-center justify-between w-full glass p-5 rounded-3xl group border-l-4 border-l-blue-500">
-                <div class="flex items-center gap-4 text-left leading-tight">
-                    <div class="text-blue-500 text-xl"><i class="fas fa-map-location-dot"></i></div>
-                    <div>
-                        <p class="text-[9px] font-bold text-gray-500 uppercase tracking-widest">Merkez Adres</p>
-                        <p class="text-[11px] font-semibold text-gray-300">Hızırtepe Mah. Yıldız Tepe Cd. No:26/A Adapazarı/Sakarya</p>
-                    </div>
-                </div>
-                <span class="text-[8px] font-black text-blue-500 uppercase border border-blue-500/30 px-2 py-1 rounded">Yol Tarifi</span>
             </a>
 
             <a href="https://wa.me/905324181654?text=Konum gönderiyorum, acil çekici lazım." class="btn-animate flex items-center justify-between w-full glass p-5 rounded-3xl group border-l-4 border-l-green-500">
@@ -108,38 +74,18 @@
                 <i class="fas fa-share-nodes text-green-500 opacity-40 group-hover:rotate-45 transition-transform"></i>
             </a>
 
-            <a href="https://www.instagram.com/kurtariciferat_yedi_54?igsh=MWNhN2pwcWI1dnRhYQ==" target="_blank" class="btn-animate flex items-center justify-between w-full glass p-5 rounded-3xl group border-l-4 border-l-pink-500">
+            <a href="https://www.instagram.com/kurtariciferat_yedi_54" target="_blank" class="btn-animate flex items-center justify-between w-full glass p-5 rounded-3xl group border-l-4 border-l-pink-500">
                 <div class="flex items-center gap-4">
-                    <div class="w-10 h-10 bg-gradient-to-tr from-yellow-500 via-pink-500 to-purple-500 rounded-full flex items-center justify-center text-lg text-white">
-                        <i class="fab fa-instagram"></i>
-                    </div>
-                    <div class="text-left">
-                        <p class="text-xs font-black italic">@kurtariciferat_yedi_54</p>
-                        <p class="text-[8px] text-gray-500 uppercase tracking-tighter">Bizi Instagram'da takip edin</p>
-                    </div>
+                    <div class="text-pink-500 text-2xl"><i class="fab fa-instagram"></i></div>
+                    <p class="text-xs font-black uppercase tracking-widest italic">Instagram'da Biz</p>
                 </div>
             </a>
         </div>
 
         <div class="mt-16">
             <h2 class="text-[10px] font-black uppercase tracking-[0.5em] text-center text-gray-500 mb-8 italic">Güncel Çalışmalarımız</h2>
-            <div id="insta-gallery" class="grid grid-cols-2 gap-3 min-h-[200px]">
-                <p class="text-[8px] text-gray-800 col-span-2 text-center uppercase animate-pulse">Instagram akışı yükleniyor...</p>
-            </div>
-        </div>
-
-        <div class="mt-16 grid grid-cols-3 gap-4">
-            <div class="glass p-4 rounded-2xl text-center border-b-2 border-b-green-500/20">
-                <i class="fas fa-truck-pickup text-green-500 text-lg mb-2"></i>
-                <p class="text-[8px] font-black uppercase tracking-tighter">Oto Çekici</p>
-            </div>
-            <div class="glass p-4 rounded-2xl text-center border-b-2 border-b-green-500/20">
-                <i class="fas fa-car-crash text-green-500 text-lg mb-2"></i>
-                <p class="text-[8px] font-black uppercase tracking-tighter">Kurtarıcı</p>
-            </div>
-            <div class="glass p-4 rounded-2xl text-center border-b-2 border-b-green-500/20">
-                <i class="fas fa-gas-pump text-green-500 text-lg mb-2"></i>
-                <p class="text-[8px] font-black uppercase tracking-tighter">Yol Yardım</p>
+            <div id="db-gallery" class="grid grid-cols-2 gap-3 min-h-[200px]">
+                <p class="text-[8px] text-gray-800 col-span-2 text-center uppercase animate-pulse italic">Veriler senkronize ediliyor...</p>
             </div>
         </div>
 
@@ -148,5 +94,31 @@
             <p class="text-[8px] text-gray-800 font-mono tracking-tighter uppercase italic">Site Design by Hasan & Crafted for Ferat</p>
         </footer>
     </div>
+
+    <script>
+        async function loadCustomGallery() {
+            const gallery = document.getElementById('db-gallery');
+            try {
+                const response = await fetch('/api/api');
+                const data = await response.json();
+
+                if (data && data.length > 0) {
+                    gallery.innerHTML = data.map(img => `
+                        <div class="group relative overflow-hidden rounded-2xl aspect-square shadow-2xl bg-green-950/10 border border-white/5">
+                            <img src="${img.url}" 
+                                 alt="Kurtarıcı Ferat" 
+                                 class="w-full h-full object-cover transition-all duration-700 grayscale group-hover:grayscale-0 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        </div>
+                    `).join('');
+                } else {
+                    gallery.innerHTML = '<p class="text-[8px] text-gray-600 col-span-2 text-center uppercase">Arşivde kayıt bulunamadı.</p>';
+                }
+            } catch (error) {
+                gallery.innerHTML = '<p class="text-[8px] text-red-900 col-span-2 text-center uppercase">Bağlantı hatası!</p>';
+            }
+        }
+        document.addEventListener('DOMContentLoaded', loadCustomGallery);
+    </script>
 </body>
 </html>
